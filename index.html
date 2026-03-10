@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OÙ EST LE COSTUME DE CLÉMENT ?</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bordeaux: #6B1A2A;
+    --bordeaux-light: #8B2A3A;
+    --gris: #4A4A4A;
+    --gris-clair: #D4D4D4;
+    --creme: #F5F0E8;
+    --or: #C9A84C;
+    --noir: #111111;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--noir);
+    color: var(--creme);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    cursor: crosshair;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(ellipse at 30% 50%, #3a0a14 0%, #0a0a0a 60%);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(107,26,42,0.04) 2px,
+      rgba(107,26,42,0.04) 4px
+    );
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '🔍🔍🔍';
+    position: absolute;
+    font-size: 120px;
+    opacity: 0.04;
+    top: 10%;
+    right: -2%;
+    letter-spacing: -20px;
+    animation: drift 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes drift {
+    from { transform: translateY(0) rotate(-5deg); }
+    to { transform: translateY(30px) rotate(5deg); }
+  }
+
+  .alerte-badge {
+    background: var(--bordeaux);
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    padding: 8px 20px;
+    border-radius: 2px;
+    margin-bottom: 32px;
+    animation: blink 1.5s step-end infinite;
+    box-shadow: 0 0 30px rgba(107,26,42,0.6);
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 10vw, 9rem);
+    line-height: 0.9;
+    text-align: center;
+    letter-spacing: 2px;
+    max-width: 900px;
+    padding: 0 20px;
+  }
+
+  .hero h1 .ou {
+    display: block;
+    color: var(--gris-clair);
+    font-size: 0.55em;
+  }
+
+  .hero h1 .est-passe {
+    display: block;
+    color: var(--bordeaux);
+  }
+
+  .hero h1 .le-costume {
+    display: block;
+    color: var(--or);
+  }
+
+  .hero h1 .de-clement {
+    display: block;
+    color: white;
+    font-style: italic;
+  }
+
+  .subtitle {
+    margin-top: 28px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--gris-clair);
+    font-size: 1.15rem;
+    text-align: center;
+    opacity: 0.7;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: var(--bordeaux-light);
+    text-transform: uppercase;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  /* SECTION : DERNIÈRE FOIS VU */
+  .section {
+    padding: 100px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    color: var(--bordeaux);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--bordeaux);
+    opacity: 0.4;
+  }
+
+  /* FICHE SIGNALÉTIQUE */
+  .fiche {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    margin-top: 60px;
+  }
+
+  @media (max-width: 700px) {
+    .fiche { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .photo-cadre {
+    position: relative;
+  }
+
+  .photo-cadre img {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    filter: sepia(20%) contrast(1.05);
+    border: 1px solid rgba(201,168,76,0.3);
+  }
+
+  .photo-label {
+    position: absolute;
+    bottom: -14px;
+    left: 0;
+    background: var(--bordeaux);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    padding: 6px 16px;
+    color: white;
+  }
+
+  .photo-cadre::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 1px solid var(--or);
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
+  .infos h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 32px;
+  }
+
+  .infos h2 em {
+    color: var(--bordeaux);
+    font-style: italic;
+  }
+
+  .detail-line {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+
+  .detail-key {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: var(--or);
+    min-width: 130px;
+    padding-top: 2px;
+  }
+
+  .detail-val {
+    font-size: 0.95rem;
+    color: var(--gris-clair);
+    line-height: 1.5;
+  }
+
+  .detail-val strong {
+    color: white;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    border-left: 2px solid var(--bordeaux);
+    padding-left: 32px;
+    margin-top: 20px;
+    position: relative;
+  }
+
+  .timeline-event {
+    position: relative;
+    margin-bottom: 36px;
+  }
+
+  .timeline-event::before {
+    content: '';
+    position: absolute;
+    left: -39px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bordeaux);
+    border: 2px solid var(--or);
+  }
+
+  .timeline-event .time {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: var(--or);
+    margin-bottom: 6px;
+  }
+
+  .timeline-event .desc {
+    font-size: 0.95rem;
+    color: var(--gris-clair);
+    line-height: 1.6;
+  }
+
+  .timeline-event .desc strong { color: white; }
+
+  /* TEMOIGNAGES */
+  .temoignages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .temoignage {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 28px;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .temoignage:hover {
+    border-color: rgba(107,26,42,0.6);
+  }
+
+  .temoignage::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--bordeaux);
+    opacity: 0.4;
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    line-height: 1;
+  }
+
+  .temoignage p {
+    font-style: italic;
+    color: var(--gris-clair);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  .temoignage .auteur {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+    color: var(--or);
+    font-size: 0.8rem;
+  }
+
+  /* CTA FINAL */
+  .cta-section {
+    text-align: center;
+    padding: 100px 20px;
+    background: radial-gradient(ellipse at center, #2a0810 0%, #0a0a0a 70%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '?';
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 600px;
+    color: rgba(107,26,42,0.06);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .cta-section h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 6vw, 5rem);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-section h2 span { color: var(--bordeaux); }
+
+  .cta-section p {
+    color: var(--gris-clair);
+    font-size: 1rem;
+    margin-bottom: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+    line-height: 1.7;
+  }
+
+  .btn-signaler {
+    display: inline-block;
+    background: var(--bordeaux);
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    padding: 18px 44px;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 0 1px var(--or);
+  }
+
+  .btn-signaler:hover {
+    background: var(--bordeaux-light);
+    box-shadow: 0 0 40px rgba(107,26,42,0.5), 0 0 0 1px var(--or);
+    transform: translateY(-2px);
+  }
+
+  /* REWARD */
+  .reward-box {
+    display: inline-block;
+    border: 1px solid var(--or);
+    padding: 16px 32px;
+    margin-top: 48px;
+    position: relative;
+    z-index: 1;
+    background: rgba(201,168,76,0.05);
+  }
+
+  .reward-box .reward-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 4px;
+    font-size: 0.75rem;
+    color: var(--or);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .reward-box .reward-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 2px;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+
+  /* ANIMATIONS ENTRÉE */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .sticker {
+    display: inline-block;
+    background: var(--bordeaux);
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    margin-bottom: 8px;
+  }
+
+  /* JEAN SHIRT section */
+  .before-after {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-top: 40px;
+    max-width: 600px;
+  }
+
+  @media (max-width: 600px) {
+    .before-after { grid-template-columns: 1fr; }
+  }
+
+  .ba-card {
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+  }
+
+  .ba-card.avant {
+    background: rgba(107,26,42,0.15);
+    border: 1px solid rgba(107,26,42,0.4);
+  }
+
+  .ba-card.apres {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .ba-card .emoji {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .ba-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+  }
+
+  .ba-card.avant h3 { color: var(--or); }
+  .ba-card.apres h3 { color: var(--gris-clair); }
+
+  .ba-card p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="alerte-badge">⚠ AVIS DE RECHERCHE VESTIMENTAIRE ⚠</div>
+  <h1>
+    <span class="ou">OÙ EST PASSÉ</span>
+    <span class="est-passe">LE COSTUME</span>
+    <span class="le-costume">GRIS FONCÉ</span>
+    <span class="de-clement">DE CLÉMENT ?</span>
+  </h1>
+  <p class="subtitle">Disparu dans des circonstances suspectes entre hier et ce matin</p>
+  <div class="scroll-hint">↓ ENQUÊTE EN COURS ↓</div>
+</section>
+
+<!-- FICHE SIGNALÉTIQUE -->
+<div class="section">
+  <div class="section-label">FICHE SIGNALÉTIQUE</div>
+  <div class="fiche reveal">
+    <div class="photo-cadre">
+      <img src="https://lacravatefrancaise.fr/cdn/shop/files/HTB1zVi9FeySBuNjy1zdq6xPxFXax.webp?v=1763825970&width=3840" alt="Le costume de Clément tel qu'il était hier" />
+      <div class="photo-label">DERNIÈRE APPARITION — HIER</div>
+    </div>
+    <div class="infos">
+      <div class="sticker">DISPARU</div>
+      <h2>Le costume de<br><em>Clément</em></h2>
+      <div class="detail-line">
+        <span class="detail-key">COULEUR</span>
+        <span class="detail-val"><strong>Gris foncé</strong> — élégant, structuré, irréprochable</span>
+      </div>
+      <div class="detail-line">
+        <span class="detail-key">CRAVATE</span>
+        <span class="detail-val"><strong>Bordeaux profond</strong> — raffinée, digne d'un directeur</span>
+      </div>
+      <div class="detail-line">
+        <span class="detail-key">STATUT</span>
+        <span class="detail-val"><strong>PORTÉ DISPARU</strong> — remplacé par un jean et un t-shirt</span>
+      </div>
+      <div class="detail-line">
+        <span class="detail-key">DERNIÈRE VUE</span>
+        <span class="detail-val"><strong>Hier au bureau</strong> — impressionnait ses collègues</span>
+      </div>
+      <div class="detail-line">
+        <span class="detail-key">SITUATION</span>
+        <span class="detail-val">Le suspect est aujourd'hui <strong>en jean/t-shirt</strong>. Choquant.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AVANT / APRÈS -->
+<div class="section">
+  <div class="section-label">COMPARAISON ACCABLANTE</div>
+  <div class="before-after reveal">
+    <div class="ba-card avant">
+      <span class="emoji">🤵</span>
+      <h3>HIER</h3>
+      <p>Costume gris, cravate bordeaux. Clément rayonnait. Ses collègues étaient impressionnés. Des murmures d'admiration dans les couloirs.</p>
+    </div>
+    <div class="ba-card apres">
+      <span class="emoji">👕</span>
+      <h3>AUJOURD'HUI</h3>
+      <p>Jean. T-shirt. La chute est brutale. Le bureau n'est plus ce qu'il était. Une ambiance de déception plane sur l'open space.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="section">
+  <div class="section-label">RECONSTITUTION DES FAITS</div>
+  <div class="timeline reveal">
+    <div class="timeline-event">
+      <div class="time">HIER — MATIN</div>
+      <div class="desc">Clément arrive au bureau. <strong>Le costume gris est là.</strong> La cravate bordeaux, impeccablement nouée. Tout le monde le remarque.</div>
+    </div>
+    <div class="timeline-event">
+      <div class="time">HIER — APRÈS-MIDI</div>
+      <div class="desc">Réunions, présentations, café. <strong>Le costume tient bon.</strong> Même à 17h, il reste digne. La veste ne plie pas. Clément non plus.</div>
+    </div>
+    <div class="timeline-event">
+      <div class="time">HIER — SOIR</div>
+      <div class="desc">Clément rentre chez lui. <strong>Le costume est retiré.</strong> C'est la dernière fois qu'on le verra.</div>
+    </div>
+    <div class="timeline-event">
+      <div class="time">AUJOURD'HUI — MATIN</div>
+      <div class="desc"><strong>Catastrophe.</strong> Jean. T-shirt. Pas de cravate. Pas de veste. Le bureau est sous le choc. Une minute de silence est envisagée.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TÉMOIGNAGES -->
+<div class="section">
+  <div class="section-label">TÉMOIGNAGES DE COLLÈGUES</div>
+  <div class="temoignages-grid">
+    <div class="temoignage reveal">
+      <p>Hier il ressemblait à un ambassadeur. Aujourd'hui... je ne sais pas comment dire ça avec bienveillance.</p>
+      <div class="auteur">— Un collègue anonyme, visiblement perturbé</div>
+    </div>
+    <div class="temoignage reveal">
+      <p>La cravate bordeaux m'avait donné envie de faire des efforts. Ce matin j'ai vu le jean et j'ai voulu rentrer chez moi.</p>
+      <div class="auteur">— Quelqu'un du pôle marketing</div>
+    </div>
+    <div class="temoignage reveal">
+      <p>J'ai cru que c'était un autre Clément. Un imposteur. Le vrai Clément portait un costume. Ça doit être un clone.</p>
+      <div class="auteur">— Un stagiaire très perturbé</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>VOUS AVEZ VU <span>LE COSTUME</span> ?</h2>
+  <p>Si vous avez la moindre information sur la localisation du costume gris foncé et de la cravate bordeaux de Clément, merci de contacter les autorités compétentes immédiatement.</p>
+  <button class="btn-signaler" onclick="alert('Merci pour votre signalement. Une enquête interne est ouverte. Clément sera convoqué.')">
+    SIGNALER UNE INFORMATION
+  </button>
+  <br>
+  <div class="reward-box">
+    <span class="reward-label">RÉCOMPENSE PROMISE</span>
+    <span class="reward-val">Un café à la machine + notre éternelle gratitude</span>
+  </div>
+</section>
+
+<footer>
+  © BUREAU DE LA SARTORIALITÉ — ENQUÊTE OUVERTE — CLÉMENT, ON VEUT LE COSTUME
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
