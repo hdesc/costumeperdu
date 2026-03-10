@@ -3,571 +3,827 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OÙ EST LE COSTUME DE CLÉMENT ?</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>⚠ ALERTE COSTUME — CLÉMENT</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Oswald:wght@400;600;700&family=Anton&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bordeaux: #6B1A2A;
-    --bordeaux-light: #8B2A3A;
-    --gris: #4A4A4A;
-    --gris-clair: #D4D4D4;
-    --creme: #F5F0E8;
-    --or: #C9A84C;
-    --noir: #111111;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background: var(--noir);
-    color: var(--creme);
-    font-family: 'DM Sans', sans-serif;
-    overflow-x: hidden;
-    cursor: crosshair;
-  }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background: radial-gradient(ellipse at 30% 50%, #3a0a14 0%, #0a0a0a 60%);
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(107,26,42,0.04) 2px,
-      rgba(107,26,42,0.04) 4px
-    );
-    pointer-events: none;
-  }
-
-  .hero::after {
-    content: '🔍🔍🔍';
-    position: absolute;
-    font-size: 120px;
-    opacity: 0.04;
-    top: 10%;
-    right: -2%;
-    letter-spacing: -20px;
-    animation: drift 8s ease-in-out infinite alternate;
-  }
-
-  @keyframes drift {
-    from { transform: translateY(0) rotate(-5deg); }
-    to { transform: translateY(30px) rotate(5deg); }
-  }
-
-  .alerte-badge {
-    background: var(--bordeaux);
-    color: white;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 4px;
-    padding: 8px 20px;
-    border-radius: 2px;
-    margin-bottom: 32px;
-    animation: blink 1.5s step-end infinite;
-    box-shadow: 0 0 30px rgba(107,26,42,0.6);
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-
-  .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3rem, 10vw, 9rem);
-    line-height: 0.9;
-    text-align: center;
-    letter-spacing: 2px;
-    max-width: 900px;
-    padding: 0 20px;
-  }
-
-  .hero h1 .ou {
-    display: block;
-    color: var(--gris-clair);
-    font-size: 0.55em;
-  }
-
-  .hero h1 .est-passe {
-    display: block;
-    color: var(--bordeaux);
-  }
-
-  .hero h1 .le-costume {
-    display: block;
-    color: var(--or);
-  }
-
-  .hero h1 .de-clement {
-    display: block;
-    color: white;
-    font-style: italic;
-  }
-
-  .subtitle {
-    margin-top: 28px;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: var(--gris-clair);
-    font-size: 1.15rem;
-    text-align: center;
-    opacity: 0.7;
-  }
-
-  .scroll-hint {
-    position: absolute;
-    bottom: 32px;
-    font-size: 0.75rem;
-    letter-spacing: 3px;
-    color: var(--bordeaux-light);
-    text-transform: uppercase;
-    animation: bounce 2s ease-in-out infinite;
-  }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(8px); }
-  }
-
-  /* SECTION : DERNIÈRE FOIS VU */
-  .section {
-    padding: 100px 20px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 5px;
-    color: var(--bordeaux);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--bordeaux);
-    opacity: 0.4;
-  }
-
-  /* FICHE SIGNALÉTIQUE */
-  .fiche {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-    margin-top: 60px;
-  }
-
-  @media (max-width: 700px) {
-    .fiche { grid-template-columns: 1fr; gap: 40px; }
-  }
-
-  .photo-cadre {
-    position: relative;
-  }
-
-  .photo-cadre img {
-    width: 100%;
-    max-width: 400px;
-    display: block;
-    filter: sepia(20%) contrast(1.05);
-    border: 1px solid rgba(201,168,76,0.3);
-  }
-
-  .photo-label {
-    position: absolute;
-    bottom: -14px;
-    left: 0;
-    background: var(--bordeaux);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 3px;
-    padding: 6px 16px;
-    color: white;
-  }
-
-  .photo-cadre::before {
-    content: '';
-    position: absolute;
-    inset: -8px;
-    border: 1px solid var(--or);
-    opacity: 0.25;
-    pointer-events: none;
-  }
-
-  .infos h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 32px;
-  }
-
-  .infos h2 em {
-    color: var(--bordeaux);
-    font-style: italic;
-  }
-
-  .detail-line {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 20px;
-    align-items: flex-start;
-  }
-
-  .detail-key {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    color: var(--or);
-    min-width: 130px;
-    padding-top: 2px;
-  }
-
-  .detail-val {
-    font-size: 0.95rem;
-    color: var(--gris-clair);
-    line-height: 1.5;
-  }
-
-  .detail-val strong {
-    color: white;
-  }
-
-  /* TIMELINE */
-  .timeline {
-    border-left: 2px solid var(--bordeaux);
-    padding-left: 32px;
-    margin-top: 20px;
-    position: relative;
-  }
-
-  .timeline-event {
-    position: relative;
-    margin-bottom: 36px;
-  }
-
-  .timeline-event::before {
-    content: '';
-    position: absolute;
-    left: -39px;
-    top: 6px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--bordeaux);
-    border: 2px solid var(--or);
-  }
-
-  .timeline-event .time {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    color: var(--or);
-    margin-bottom: 6px;
-  }
-
-  .timeline-event .desc {
-    font-size: 0.95rem;
-    color: var(--gris-clair);
-    line-height: 1.6;
-  }
-
-  .timeline-event .desc strong { color: white; }
-
-  /* TEMOIGNAGES */
-  .temoignages-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    margin-top: 40px;
-  }
-
-  .temoignage {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(201,168,76,0.15);
-    padding: 28px;
-    position: relative;
-    transition: border-color 0.3s;
-  }
-
-  .temoignage:hover {
-    border-color: rgba(107,26,42,0.6);
-  }
-
-  .temoignage::before {
-    content: '"';
-    font-family: 'Playfair Display', serif;
-    font-size: 5rem;
-    color: var(--bordeaux);
-    opacity: 0.4;
-    position: absolute;
-    top: -10px;
-    left: 16px;
-    line-height: 1;
-  }
-
-  .temoignage p {
-    font-style: italic;
-    color: var(--gris-clair);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 20px;
-    padding-top: 20px;
-  }
-
-  .temoignage .auteur {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 2px;
-    color: var(--or);
-    font-size: 0.8rem;
-  }
-
-  /* CTA FINAL */
-  .cta-section {
-    text-align: center;
-    padding: 100px 20px;
-    background: radial-gradient(ellipse at center, #2a0810 0%, #0a0a0a 70%);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-section::before {
-    content: '?';
-    position: absolute;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 600px;
-    color: rgba(107,26,42,0.06);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-  }
-
-  .cta-section h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2rem, 6vw, 5rem);
-    letter-spacing: 3px;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .cta-section h2 span { color: var(--bordeaux); }
-
-  .cta-section p {
-    color: var(--gris-clair);
-    font-size: 1rem;
-    margin-bottom: 40px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    z-index: 1;
-    line-height: 1.7;
-  }
-
-  .btn-signaler {
-    display: inline-block;
-    background: var(--bordeaux);
-    color: white;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 4px;
-    padding: 18px 44px;
-    text-decoration: none;
-    position: relative;
-    z-index: 1;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 0 0 1px var(--or);
-  }
-
-  .btn-signaler:hover {
-    background: var(--bordeaux-light);
-    box-shadow: 0 0 40px rgba(107,26,42,0.5), 0 0 0 1px var(--or);
-    transform: translateY(-2px);
-  }
-
-  /* REWARD */
-  .reward-box {
-    display: inline-block;
-    border: 1px solid var(--or);
-    padding: 16px 32px;
-    margin-top: 48px;
-    position: relative;
-    z-index: 1;
-    background: rgba(201,168,76,0.05);
-  }
-
-  .reward-box .reward-label {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 4px;
-    font-size: 0.75rem;
-    color: var(--or);
-    display: block;
-    margin-bottom: 6px;
-  }
-
-  .reward-box .reward-val {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: white;
-  }
-
-  /* FOOTER */
-  footer {
-    text-align: center;
-    padding: 40px 20px;
-    border-top: 1px solid rgba(255,255,255,0.07);
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.2);
-    letter-spacing: 2px;
-    font-family: 'Bebas Neue', sans-serif;
-  }
-
-  /* ANIMATIONS ENTRÉE */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .sticker {
-    display: inline-block;
-    background: var(--bordeaux);
-    color: white;
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 3px;
-    font-size: 0.75rem;
-    padding: 4px 12px;
-    margin-bottom: 8px;
-  }
-
-  /* JEAN SHIRT section */
-  .before-after {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4px;
-    margin-top: 40px;
-    max-width: 600px;
-  }
-
-  @media (max-width: 600px) {
-    .before-after { grid-template-columns: 1fr; }
-  }
-
-  .ba-card {
-    padding: 32px 24px;
-    text-align: center;
-    position: relative;
-  }
-
-  .ba-card.avant {
-    background: rgba(107,26,42,0.15);
-    border: 1px solid rgba(107,26,42,0.4);
-  }
-
-  .ba-card.apres {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .ba-card .emoji {
-    font-size: 3.5rem;
-    display: block;
-    margin-bottom: 16px;
-  }
-
-  .ba-card h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 3px;
-    margin-bottom: 8px;
-  }
-
-  .ba-card.avant h3 { color: var(--or); }
-  .ba-card.apres h3 { color: var(--gris-clair); }
-
-  .ba-card p {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.6;
-  }
-
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --red: #ff1a1a;
+  --red2: #ff4d00;
+  --amber: #ffaa00;
+  --dark: #0a0000;
+  --darker: #050000;
+  --mono: 'Share Tech Mono', monospace;
+  --head: 'Anton', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--darker);
+  color: #fff;
+  font-family: var(--mono);
+  overflow-x: hidden;
+  cursor: crosshair;
+}
+
+/* ═══ AMBIENT FLASH ═══ */
+.flash-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  animation: flash-bg 1.4s step-end infinite;
+  mix-blend-mode: screen;
+}
+
+@keyframes flash-bg {
+  0%   { background: rgba(255,26,26,0.07); }
+  50%  { background: rgba(255,26,26,0.0); }
+  100% { background: rgba(255,26,26,0.07); }
+}
+
+/* ═══ SCANLINES ═══ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,0.35) 0px,
+    rgba(0,0,0,0.35) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* ═══ TICKER TOP ═══ */
+.ticker-wrap {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  background: var(--red);
+  overflow: hidden;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #ff0;
+  animation: ticker-flash 1.4s step-end infinite;
+}
+
+@keyframes ticker-flash {
+  0%, 100% { background: var(--red); }
+  50%       { background: #cc0000; }
+}
+
+.ticker-inner {
+  white-space: nowrap;
+  animation: ticker 18s linear infinite;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: #fff;
+}
+
+@keyframes ticker {
+  from { transform: translateX(100vw); }
+  to   { transform: translateX(-100%); }
+}
+
+/* ═══ SIRENBAR ═══ */
+.sirenbar {
+  position: fixed;
+  top: 36px; left: 0; right: 0;
+  height: 8px;
+  z-index: 998;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--red) 0px, var(--red) 20px,
+    #000 20px, #000 40px
+  );
+  animation: siren-move 0.3s linear infinite;
+}
+
+@keyframes siren-move {
+  from { background-position: 0 0; }
+  to   { background-position: 40px 0; }
+}
+
+/* ═══ HERO ═══ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 20px 80px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(180,0,0,0.15) 0%, transparent 70%),
+    var(--darker);
+}
+
+/* pulsing red glow center */
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,0,0,0.12) 0%, transparent 70%);
+  animation: glow-pulse 1.4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes glow-pulse {
+  from { transform: scale(0.9); opacity: 0.5; }
+  to   { transform: scale(1.2); opacity: 1; }
+}
+
+/* corner lights */
+.corner-light {
+  position: absolute;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: corner-blink 0.7s step-end infinite;
+}
+.corner-light.tl { top:-30px; left:-30px; background: radial-gradient(circle, rgba(255,30,0,0.7), transparent 70%); }
+.corner-light.tr { top:-30px; right:-30px; background: radial-gradient(circle, rgba(255,30,0,0.7), transparent 70%); animation-delay: 0.35s; }
+.corner-light.bl { bottom:-30px; left:-30px; background: radial-gradient(circle, rgba(255,30,0,0.7), transparent 70%); animation-delay: 0.2s; }
+.corner-light.br { bottom:-30px; right:-30px; background: radial-gradient(circle, rgba(255,30,0,0.7), transparent 70%); animation-delay: 0.55s; }
+
+@keyframes corner-blink {
+  0%,100% { opacity:1; }
+  50%     { opacity:0; }
+}
+
+.alerte-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--red);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  padding: 8px 20px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+  animation: tag-blink 0.9s step-end infinite;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+
+@keyframes tag-blink {
+  0%,100% { background: var(--red); color:#fff; }
+  50%     { background: #fff; color: var(--red); }
+}
+
+.dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  animation: dot-blink 0.5s step-end infinite;
+}
+@keyframes dot-blink {
+  0%,100%{opacity:1;}50%{opacity:0;}
+}
+
+.hero-title {
+  font-family: var(--head);
+  font-size: clamp(3.5rem, 13vw, 11rem);
+  line-height: 0.88;
+  text-align: center;
+  letter-spacing: -1px;
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
+  animation: title-shake 5s ease-in-out infinite;
+}
+
+@keyframes title-shake {
+  0%,95%,100% { transform: translate(0,0); }
+  96%  { transform: translate(-3px, 1px); }
+  97%  { transform: translate(3px,-1px); }
+  98%  { transform: translate(-2px, 2px); }
+  99%  { transform: translate(2px,-2px); }
+}
+
+.hero-title .line1 { display:block; color:#fff; }
+.hero-title .line2 { display:block; color: var(--red); -webkit-text-stroke: 1px var(--red); }
+.hero-title .line3 { display:block; color: var(--amber); }
+.hero-title .line4 {
+  display:block;
+  color: transparent;
+  -webkit-text-stroke: 2px #fff;
+  animation: glitch 3s infinite;
+}
+
+@keyframes glitch {
+  0%,92%,100% { text-shadow:none; transform: skewX(0); }
+  93% { text-shadow: 4px 0 var(--red), -4px 0 #0ff; transform: skewX(-5deg); }
+  94% { text-shadow: -4px 0 var(--red), 4px 0 #0ff; transform: skewX(5deg); }
+  95% { text-shadow: none; transform: skewX(0); }
+}
+
+.hero-sub {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  margin-top: 24px;
+  position: relative;
+  z-index: 2;
+  animation: sub-flicker 4s linear infinite;
+}
+
+@keyframes sub-flicker {
+  0%,98%,100%{opacity:0.5;}
+  99%{opacity:0.1;}
+}
+
+.countdown-label {
+  margin-top: 48px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 5px;
+  color: var(--red);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.countdown {
+  font-family: var(--head);
+  font-size: clamp(2rem, 7vw, 5rem);
+  letter-spacing: 8px;
+  color: var(--amber);
+  text-align: center;
+  margin-top: 8px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 30px rgba(255,170,0,0.6);
+}
+
+/* ═══ SECTION GÉNÉRIQUE ═══ */
+.section {
+  padding: 80px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  border-left: 4px solid var(--red);
+  padding-left: 16px;
+  animation: border-blink 1.4s step-end infinite;
+}
+
+@keyframes border-blink {
+  0%,100%{border-color:var(--red);}
+  50%{border-color:var(--amber);}
+}
+
+.section-head h2 {
+  font-family: var(--head);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.section-head .num {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--red);
+  letter-spacing: 2px;
+}
+
+/* ═══ PHOTO CRIME ═══ */
+.crime-scene {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+@media(max-width:700px){ .crime-scene{grid-template-columns:1fr;} }
+
+.photo-wrapper {
+  position: relative;
+}
+
+.photo-wrapper img {
+  width: 100%;
+  display: block;
+  filter: contrast(1.1) saturate(0.8);
+  animation: img-flicker 8s linear infinite;
+}
+
+@keyframes img-flicker {
+  0%,97%,100%{filter:contrast(1.1) saturate(0.8);}
+  98%{filter:contrast(1.4) saturate(0) brightness(1.5);}
+  99%{filter:contrast(0.9) saturate(1.2);}
+}
+
+.photo-wrapper::after {
+  content: '📷 DERNIÈRE APPARITION CONNUE';
+  position: absolute;
+  bottom:0; left:0; right:0;
+  background: var(--red);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  padding: 8px 12px;
+  animation: tag-blink 1.2s step-end infinite;
+}
+
+.red-frame {
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--red);
+  pointer-events: none;
+  animation: frame-blink 0.7s step-end infinite;
+  box-shadow: 0 0 30px rgba(255,0,0,0.4), inset 0 0 30px rgba(255,0,0,0.1);
+}
+
+@keyframes frame-blink {
+  0%,100%{opacity:1;}
+  50%{opacity:0.3;}
+}
+
+/* INFOS TABLE */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-table tr {
+  border-bottom: 1px solid rgba(255,26,26,0.2);
+}
+
+.info-table td {
+  padding: 14px 8px;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.info-table td:first-child {
+  color: var(--red);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  width: 140px;
+  vertical-align: top;
+  padding-top: 16px;
+}
+
+.info-table td:last-child {
+  color: rgba(255,255,255,0.85);
+}
+
+.info-table td strong { color: #fff; }
+
+/* STATUS BOX */
+.status-box {
+  background: rgba(255,26,26,0.08);
+  border: 1px solid var(--red);
+  padding: 20px;
+  margin-top: 24px;
+  animation: status-pulse 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes status-pulse {
+  from { box-shadow: 0 0 10px rgba(255,26,26,0.2); }
+  to   { box-shadow: 0 0 40px rgba(255,26,26,0.6); }
+}
+
+.status-box .status-label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  color: var(--red);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-box .status-text {
+  font-family: var(--head);
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  color: var(--amber);
+}
+
+/* ═══ AVANT/APRÈS ═══ */
+.ba-grid {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 0;
+  align-items: center;
+  margin-top: 20px;
+}
+
+@media(max-width:600px){.ba-grid{grid-template-columns:1fr;}}
+
+.ba-card {
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.ba-card.avant {
+  background: rgba(255,170,0,0.06);
+  border: 1px solid rgba(255,170,0,0.3);
+}
+
+.ba-card.apres {
+  background: rgba(255,26,26,0.06);
+  border: 1px solid rgba(255,26,26,0.3);
+  animation: status-pulse 1s ease-in-out infinite alternate;
+}
+
+.ba-arrow {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--red);
+  animation: arrow-blink 0.7s step-end infinite;
+}
+
+@keyframes arrow-blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+.ba-card .emoji { font-size: 3rem; display:block; margin-bottom:12px; }
+.ba-card h3 {
+  font-family: var(--head);
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+.ba-card.avant h3 { color: var(--amber); }
+.ba-card.apres h3 { color: var(--red); }
+.ba-card p { font-size: 0.8rem; color: rgba(255,255,255,0.55); line-height:1.7; }
+
+/* ═══ TIMELINE ═══ */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content:'';
+  position: absolute;
+  left: 8px; top:0; bottom:0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--red), transparent);
+  animation: tl-pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes tl-pulse {
+  from{box-shadow: 0 0 5px var(--red);}
+  to{box-shadow: 0 0 20px var(--red);}
+}
+
+.tl-event {
+  position: relative;
+  margin-bottom: 32px;
+  padding: 20px;
+  border: 1px solid rgba(255,26,26,0.15);
+  background: rgba(255,26,26,0.03);
+  transition: border-color 0.3s;
+}
+
+.tl-event:hover { border-color: rgba(255,26,26,0.5); }
+
+.tl-event::before {
+  content:'';
+  position: absolute;
+  left: -36px; top: 22px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 10px var(--red);
+  animation: dot-blink 0.7s step-end infinite;
+}
+
+.tl-event .time {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  color: var(--red);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tl-event .time::after {
+  content:'';
+  flex:1;
+  height:1px;
+  background: rgba(255,26,26,0.3);
+}
+
+.tl-event p {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+}
+
+.tl-event p strong { color: #fff; }
+
+/* ═══ TÉMOIGNAGES ═══ */
+.temo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 20px;
+}
+
+.temo {
+  padding: 24px;
+  border: 1px solid rgba(255,26,26,0.2);
+  background: rgba(255,26,26,0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.temo::before {
+  content:'';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,26,26,0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.temo p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.temo .auteur {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  color: var(--red);
+}
+
+/* ═══ CTA FINAL ═══ */
+.cta-section {
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+  background: #050000;
+}
+
+/* Siren lights left/right */
+.siren-left, .siren-right {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  pointer-events: none;
+}
+
+.siren-left {
+  left: 0;
+  background: radial-gradient(ellipse at left center, rgba(255,26,26,0.4) 0%, transparent 70%);
+  animation: siren-left-anim 1.4s ease-in-out infinite alternate;
+}
+
+.siren-right {
+  right: 0;
+  background: radial-gradient(ellipse at right center, rgba(255,100,0,0.4) 0%, transparent 70%);
+  animation: siren-left-anim 1.4s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes siren-left-anim {
+  from { opacity: 0.3; }
+  to   { opacity: 1; }
+}
+
+.cta-section h2 {
+  font-family: var(--head);
+  font-size: clamp(2rem, 7vw, 6rem);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  animation: title-shake 3s ease-in-out infinite;
+}
+
+.cta-section h2 span { color: var(--red); }
+
+.cta-section p {
+  margin: 24px auto 40px;
+  max-width: 520px;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.9;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+}
+
+.btn {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--head);
+  font-size: 1.3rem;
+  letter-spacing: 5px;
+  padding: 20px 50px;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(12px 0%,100% 0%,calc(100% - 12px) 100%,0% 100%);
+  animation: btn-pulse 0.7s step-end infinite;
+  text-transform: uppercase;
+  transition: transform 0.2s;
+}
+
+.btn:hover { transform: scale(1.05); }
+
+@keyframes btn-pulse {
+  0%,100%{ box-shadow: 0 0 0px var(--red); }
+  50%    { box-shadow: 0 0 40px var(--red); }
+}
+
+.reward {
+  margin-top: 48px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--amber);
+  padding: 20px 40px;
+  position: relative;
+  z-index: 1;
+  animation: status-pulse 1.5s ease-in-out infinite alternate;
+}
+
+.reward .r-label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 5px;
+  color: var(--amber);
+}
+
+.reward .r-val {
+  font-family: var(--head);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+/* ═══ FOOTER ═══ */
+footer {
+  text-align: center;
+  padding: 32px 20px;
+  border-top: 1px solid rgba(255,26,26,0.2);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.2);
+}
+
+footer span { color: var(--red); animation: dot-blink 1s step-end infinite; }
+
+/* ═══ SCROLL REVEAL ═══ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ═══ NOISE OVERLAY ═══ */
+.noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 998;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 128px;
+}
+
+/* progress bar du bas */
+.urgency-bar {
+  position: fixed;
+  bottom: 0; left:0; right:0;
+  height: 6px;
+  background: rgba(255,26,26,0.15);
+  z-index: 999;
+  overflow: hidden;
+}
+
+.urgency-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, var(--red), var(--amber), var(--red));
+  background-size: 200% 100%;
+  animation: urgency-anim 1s linear infinite;
+}
+
+@keyframes urgency-anim {
+  from{background-position: 0% 0%;}
+  to{background-position:200% 0%;}
+}
 </style>
 </head>
 <body>
 
+<div class="flash-overlay"></div>
+<div class="noise"></div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    ⚠ ALERTE MAXIMALE ⚠ — COSTUME GRIS FONCÉ PORTÉ DISPARU — CRAVATE BORDEAUX INTROUVABLE — CLÉMENT EN JEAN/T-SHIRT — SITUATION CRITIQUE — ENQUÊTE EN COURS — TÉMOINS CONTACTEZ IMMÉDIATEMENT LES AUTORITÉS — ⚠ ALERTE MAXIMALE ⚠ — COSTUME GRIS FONCÉ PORTÉ DISPARU — CRAVATE BORDEAUX INTROUVABLE — CLÉMENT EN JEAN/T-SHIRT — SITUATION CRITIQUE — ENQUÊTE EN COURS — TÉMOINS CONTACTEZ IMMÉDIATEMENT LES AUTORITÉS —
+  </div>
+</div>
+<div class="sirenbar"></div>
+
 <!-- HERO -->
 <section class="hero">
-  <div class="alerte-badge">⚠ AVIS DE RECHERCHE VESTIMENTAIRE ⚠</div>
-  <h1>
-    <span class="ou">OÙ EST PASSÉ</span>
-    <span class="est-passe">LE COSTUME</span>
-    <span class="le-costume">GRIS FONCÉ</span>
-    <span class="de-clement">DE CLÉMENT ?</span>
+  <div class="corner-light tl"></div>
+  <div class="corner-light tr"></div>
+  <div class="corner-light bl"></div>
+  <div class="corner-light br"></div>
+
+  <div class="alerte-tag">
+    <div class="dot"></div>
+    ALERTE NIVEAU 5 — EN DIRECT
+  </div>
+
+  <h1 class="hero-title">
+    <span class="line1">OÙ EST</span>
+    <span class="line2">LE COSTUME</span>
+    <span class="line3">DE</span>
+    <span class="line4">CLÉMENT ?</span>
   </h1>
-  <p class="subtitle">Disparu dans des circonstances suspectes entre hier et ce matin</p>
-  <div class="scroll-hint">↓ ENQUÊTE EN COURS ↓</div>
+
+  <p class="hero-sub">DISPARU ENTRE 18H00 HIER ET 09H00 CE MATIN — CIRCONSTANCES INCONNUES</p>
+
+  <div class="countdown-label">TEMPS SANS COSTUME</div>
+  <div class="countdown" id="timer">00:00:00</div>
 </section>
 
-<!-- FICHE SIGNALÉTIQUE -->
+<!-- FICHE -->
 <div class="section">
-  <div class="section-label">FICHE SIGNALÉTIQUE</div>
-  <div class="fiche reveal">
-    <div class="photo-cadre">
-      <img src="https://lacravatefrancaise.fr/cdn/shop/files/HTB1zVi9FeySBuNjy1zdq6xPxFXax.webp?v=1763825970&width=3840" alt="Le costume de Clément tel qu'il était hier" />
-      <div class="photo-label">DERNIÈRE APPARITION — HIER</div>
+  <div class="section-head reveal">
+    <div>
+      <div class="num">// SECTION 01</div>
+      <h2>Fiche signalétique</h2>
     </div>
-    <div class="infos">
-      <div class="sticker">DISPARU</div>
-      <h2>Le costume de<br><em>Clément</em></h2>
-      <div class="detail-line">
-        <span class="detail-key">COULEUR</span>
-        <span class="detail-val"><strong>Gris foncé</strong> — élégant, structuré, irréprochable</span>
-      </div>
-      <div class="detail-line">
-        <span class="detail-key">CRAVATE</span>
-        <span class="detail-val"><strong>Bordeaux profond</strong> — raffinée, digne d'un directeur</span>
-      </div>
-      <div class="detail-line">
-        <span class="detail-key">STATUT</span>
-        <span class="detail-val"><strong>PORTÉ DISPARU</strong> — remplacé par un jean et un t-shirt</span>
-      </div>
-      <div class="detail-line">
-        <span class="detail-key">DERNIÈRE VUE</span>
-        <span class="detail-val"><strong>Hier au bureau</strong> — impressionnait ses collègues</span>
-      </div>
-      <div class="detail-line">
-        <span class="detail-key">SITUATION</span>
-        <span class="detail-val">Le suspect est aujourd'hui <strong>en jean/t-shirt</strong>. Choquant.</span>
+  </div>
+
+  <div class="crime-scene reveal">
+    <div class="photo-wrapper">
+      <img src="https://lacravatefrancaise.fr/cdn/shop/files/HTB1zVi9FeySBuNjy1zdq6xPxFXax.webp?v=1763825970&width=3840" alt="Le costume de Clément" />
+      <div class="red-frame"></div>
+    </div>
+    <div>
+      <table class="info-table">
+        <tr>
+          <td>COULEUR</td>
+          <td><strong>Gris foncé</strong> — élégant, structuré, irréprochable</td>
+        </tr>
+        <tr>
+          <td>CRAVATE</td>
+          <td><strong>Bordeaux profond</strong> — raffinée, classe, absente</td>
+        </tr>
+        <tr>
+          <td>PORTEUR</td>
+          <td><strong>Clément</strong> — 1 jour en costume / 1 jour en jean. Incohérent.</td>
+        </tr>
+        <tr>
+          <td>DERNIÈRE VUE</td>
+          <td><strong>Hier au bureau</strong> — tous les témoins confirment</td>
+        </tr>
+        <tr>
+          <td>STATUT ACTUEL</td>
+          <td><strong style="color:var(--red)">PORTÉ DISPARU</strong> — remplacé par jean + t-shirt</td>
+        </tr>
+        <tr>
+          <td>NIVEAU ALERTE</td>
+          <td><strong style="color:var(--amber)">⚠ CRITIQUE</strong></td>
+        </tr>
+      </table>
+      <div class="status-box">
+        <div class="status-label"><div class="dot"></div> STATUT EN TEMPS RÉEL</div>
+        <div class="status-text">ENQUÊTE OUVERTE — CLÉMENT SUSPECT N°1</div>
       </div>
     </div>
   </div>
@@ -575,93 +831,134 @@
 
 <!-- AVANT / APRÈS -->
 <div class="section">
-  <div class="section-label">COMPARAISON ACCABLANTE</div>
-  <div class="before-after reveal">
+  <div class="section-head reveal">
+    <div>
+      <div class="num">// SECTION 02</div>
+      <h2>Comparaison accablante</h2>
+    </div>
+  </div>
+  <div class="ba-grid reveal">
     <div class="ba-card avant">
       <span class="emoji">🤵</span>
       <h3>HIER</h3>
-      <p>Costume gris, cravate bordeaux. Clément rayonnait. Ses collègues étaient impressionnés. Des murmures d'admiration dans les couloirs.</p>
+      <p>Costume gris foncé, cravate bordeaux. Clément rayonnait d'une aura professionnelle rare. Les collègues étaient émus.</p>
     </div>
+    <div class="ba-arrow">⚡</div>
     <div class="ba-card apres">
-      <span class="emoji">👕</span>
+      <span class="emoji">😰</span>
       <h3>AUJOURD'HUI</h3>
-      <p>Jean. T-shirt. La chute est brutale. Le bureau n'est plus ce qu'il était. Une ambiance de déception plane sur l'open space.</p>
+      <p>Jean. T-shirt. La chute est brutale. L'open space est plongé dans la consternation. La cafetière pleure.</p>
     </div>
   </div>
 </div>
 
 <!-- TIMELINE -->
 <div class="section">
-  <div class="section-label">RECONSTITUTION DES FAITS</div>
+  <div class="section-head reveal">
+    <div>
+      <div class="num">// SECTION 03</div>
+      <h2>Reconstitution des faits</h2>
+    </div>
+  </div>
   <div class="timeline reveal">
-    <div class="timeline-event">
-      <div class="time">HIER — MATIN</div>
-      <div class="desc">Clément arrive au bureau. <strong>Le costume gris est là.</strong> La cravate bordeaux, impeccablement nouée. Tout le monde le remarque.</div>
+    <div class="tl-event">
+      <div class="time">HIER — 08H45</div>
+      <p>Clément franchit les portes du bureau. <strong>Le costume gris est là.</strong> La cravate bordeaux, nouée avec soin. Des murmures d'admiration parcourent l'open space.</p>
     </div>
-    <div class="timeline-event">
-      <div class="time">HIER — APRÈS-MIDI</div>
-      <div class="desc">Réunions, présentations, café. <strong>Le costume tient bon.</strong> Même à 17h, il reste digne. La veste ne plie pas. Clément non plus.</div>
+    <div class="tl-event">
+      <div class="time">HIER — 12H30</div>
+      <p>Pause déjeuner. <strong>Le costume résiste.</strong> Même face à la menace carbonara, il reste immaculé. Clément est intouchable.</p>
     </div>
-    <div class="timeline-event">
-      <div class="time">HIER — SOIR</div>
-      <div class="desc">Clément rentre chez lui. <strong>Le costume est retiré.</strong> C'est la dernière fois qu'on le verra.</div>
+    <div class="tl-event">
+      <div class="time">HIER — 17H58</div>
+      <p>Dernier aperçu du costume. <strong>Clément quitte le bureau.</strong> C'est la dernière fois que le gris foncé et la cravate bordeaux seront vus ensemble.</p>
     </div>
-    <div class="timeline-event">
-      <div class="time">AUJOURD'HUI — MATIN</div>
-      <div class="desc"><strong>Catastrophe.</strong> Jean. T-shirt. Pas de cravate. Pas de veste. Le bureau est sous le choc. Une minute de silence est envisagée.</div>
+    <div class="tl-event">
+      <div class="time">AUJOURD'HUI — 09H12</div>
+      <p>⚠ <strong>CATASTROPHE.</strong> Clément arrive. Jean. T-shirt. Pas de veste. Pas de cravate. Une collègue s'évanouit. L'alarme incendie se déclenche par solidarité.</p>
     </div>
   </div>
 </div>
 
 <!-- TÉMOIGNAGES -->
 <div class="section">
-  <div class="section-label">TÉMOIGNAGES DE COLLÈGUES</div>
-  <div class="temoignages-grid">
-    <div class="temoignage reveal">
-      <p>Hier il ressemblait à un ambassadeur. Aujourd'hui... je ne sais pas comment dire ça avec bienveillance.</p>
-      <div class="auteur">— Un collègue anonyme, visiblement perturbé</div>
+  <div class="section-head reveal">
+    <div>
+      <div class="num">// SECTION 04</div>
+      <h2>Témoignages sous serment</h2>
     </div>
-    <div class="temoignage reveal">
-      <p>La cravate bordeaux m'avait donné envie de faire des efforts. Ce matin j'ai vu le jean et j'ai voulu rentrer chez moi.</p>
-      <div class="auteur">— Quelqu'un du pôle marketing</div>
+  </div>
+  <div class="temo-grid">
+    <div class="temo reveal">
+      <p>Hier il ressemblait à un directeur général. Aujourd'hui je n'arrive pas à le regarder dans les yeux. C'est trop.</p>
+      <div class="auteur">— COLLÈGUE ANONYME, TRAUMATISÉ(E)</div>
     </div>
-    <div class="temoignage reveal">
-      <p>J'ai cru que c'était un autre Clément. Un imposteur. Le vrai Clément portait un costume. Ça doit être un clone.</p>
-      <div class="auteur">— Un stagiaire très perturbé</div>
+    <div class="temo reveal">
+      <p>La cravate bordeaux m'avait inspirée à donner le meilleur de moi-même. Ce matin j'ai vu le jean et j'ai demandé un arrêt maladie.</p>
+      <div class="auteur">— DÉPARTEMENT MARKETING</div>
+    </div>
+    <div class="temo reveal">
+      <p>J'ai cru à une tentative d'usurpation d'identité. Le vrai Clément porte des costumes. Cet individu en jean est suspect.</p>
+      <div class="auteur">— STAGIAIRE, TRÈS PERTURBÉ</div>
     </div>
   </div>
 </div>
 
 <!-- CTA -->
 <section class="cta-section">
-  <h2>VOUS AVEZ VU <span>LE COSTUME</span> ?</h2>
-  <p>Si vous avez la moindre information sur la localisation du costume gris foncé et de la cravate bordeaux de Clément, merci de contacter les autorités compétentes immédiatement.</p>
-  <button class="btn-signaler" onclick="alert('Merci pour votre signalement. Une enquête interne est ouverte. Clément sera convoqué.')">
-    SIGNALER UNE INFORMATION
+  <div class="siren-left"></div>
+  <div class="siren-right"></div>
+
+  <h2 class="reveal">VOUS AVEZ VU <span>LE COSTUME</span> ?</h2>
+  <p class="reveal">Toute information sur la localisation du costume gris foncé et de la cravate bordeaux de Clément doit être transmise aux autorités compétentes dans les plus brefs délais. La situation est critique.</p>
+  <button class="btn reveal" onclick="document.getElementById('modal').style.display='flex'">
+    🚨 SIGNALER UNE INFORMATION
   </button>
   <br>
-  <div class="reward-box">
-    <span class="reward-label">RÉCOMPENSE PROMISE</span>
-    <span class="reward-val">Un café à la machine + notre éternelle gratitude</span>
+  <div class="reward reveal">
+    <span class="r-label">RÉCOMPENSE OFFICIELLE</span>
+    <span class="r-val">☕ UN CAFÉ MACHINE + NOTRE ÉTERNELLE GRATITUDE</span>
   </div>
 </section>
 
 <footer>
-  © BUREAU DE LA SARTORIALITÉ — ENQUÊTE OUVERTE — CLÉMENT, ON VEUT LE COSTUME
+  <span>●</span> BUREAU INTERMINISTÉRIEL DE LA SARTORIALITÉ D'URGENCE — ENQUÊTE N°2024-CLEMENT-001 — TOUS DROITS RÉSERVÉS <span>●</span>
 </footer>
 
-<script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 100);
-      }
-    });
-  }, { threshold: 0.15 });
+<div class="urgency-bar"><div class="urgency-fill"></div></div>
 
-  reveals.forEach(el => observer.observe(el));
+<!-- MODAL -->
+<div id="modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:10000;align-items:center;justify-content:center;padding:20px;" onclick="this.style.display='none'">
+  <div style="background:#0a0000;border:2px solid var(--red);padding:48px;max-width:480px;text-align:center;animation:status-pulse 1s ease-in-out infinite alternate;" onclick="event.stopPropagation()">
+    <div style="font-family:var(--head);font-size:3rem;letter-spacing:4px;color:var(--red);animation:tag-blink 0.9s step-end infinite;">⚠ SIGNALEMENT</div>
+    <p style="font-family:var(--mono);font-size:0.8rem;color:rgba(255,255,255,0.6);margin:20px 0;letter-spacing:2px;line-height:1.9;">Merci pour votre signalement. Une enquête interne a été ouverte. Clément sera convoqué pour s'expliquer sur la disparition de son costume. Votre café vous sera remis sous 48h.</p>
+    <button onclick="document.getElementById('modal').style.display='none'" style="background:var(--red);color:#fff;font-family:var(--head);font-size:1rem;letter-spacing:4px;padding:14px 36px;border:none;cursor:pointer;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);">FERMER</button>
+  </div>
+</div>
+
+<script>
+// COUNTDOWN depuis "hier 18h"
+function updateTimer() {
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  yesterday.setHours(18, 0, 0, 0);
+  const diff = Math.floor((Date.now() - yesterday.getTime()) / 1000);
+  const h = Math.floor(diff / 3600).toString().padStart(2,'0');
+  const m = Math.floor((diff % 3600) / 60).toString().padStart(2,'0');
+  const s = (diff % 60).toString().padStart(2,'0');
+  document.getElementById('timer').textContent = `${h}:${m}:${s}`;
+}
+setInterval(updateTimer, 1000);
+updateTimer();
+
+// SCROLL REVEAL
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 120);
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
